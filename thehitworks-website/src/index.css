@@ -1,0 +1,127 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+@import "tailwindcss";
+:root {
+  --milk: #FBF9F1;
+  --milk-deep: #EFE9D8;
+  --paper: #FFFFFF;
+  --ink: #14162C;
+  --royal: #2B3EE0;
+  --royal-deep: #12175E;
+  --royal-mid: #1D24A6;
+  --gold: #F5B301;
+}
+.site-root {
+  background: var(--milk);
+  color: var(--ink);
+  font-family: 'VT323', monospace;
+  font-size: 19px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: 0.02em;
+}
+.font-term { font-family: 'VT323', monospace; }
+  /* --- color utilities (exact brand hex, not Tailwind defaults) --- */
+  .bg-milk { background-color: var(--milk); }
+  .bg-milk-deep { background-color: var(--milk-deep); }
+  .bg-paper { background-color: var(--paper); }
+  .bg-royal { background-color: var(--royal); }
+  .bg-royal-deep { background-color: var(--royal-deep); }
+  .bg-royal-mid { background-color: var(--royal-mid); }
+  .bg-gold { background-color: var(--gold); }
+  .bg-ink { background-color: var(--ink); }
+  .text-ink { color: var(--ink); }
+  .text-milk { color: var(--milk); }
+  .text-royal { color: var(--royal); }
+  .text-gold { color: var(--gold); }
+  .text-ink-70 { color: rgba(20,22,44,0.7); }
+  .text-milk-70 { color: rgba(251,249,241,0.72); }
+  .border-ink { border-color: var(--ink); }
+  .border-royal { border-color: var(--royal); }
+  .border-milk { border-color: var(--milk); }
+  .border-gold { border-color: var(--gold); }
+  /* --- pixel corner clip-paths: two step sizes --- */
+  .pixel-corners {
+    clip-path: polygon(
+      0 10px, 10px 10px, 10px 0, calc(100% - 10px) 0, calc(100% - 10px) 10px, 100% 10px,
+      100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px), calc(100% - 10px) 100%,
+      10px 100%, 10px calc(100% - 10px), 0 calc(100% - 10px)
+    );
+  }
+  .pixel-corners-sm {
+    clip-path: polygon(
+      0 6px, 6px 6px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+      100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%,
+      6px 100%, 6px calc(100% - 6px), 0 calc(100% - 6px)
+    );
+  }
+
+  /* --- arcade button press interaction (the site's signature move) --- */
+  .btn-pixel {
+    border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    transition: transform 0.08s steps(2), box-shadow 0.08s steps(2);
+  }
+  .btn-pixel:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--ink); }
+  .btn-pixel:active { transform: translate(5px, 5px); box-shadow: 0 0 0 var(--ink); }
+  .btn-pixel:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .card-pixel {
+    border: 3px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--royal);
+    transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
+  }
+  .card-pixel:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--royal); }
+
+  .card-pixel-gold {
+    border: 3px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--gold);
+  }
+
+  a, button { font-family: inherit; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+  .cursor-blink { animation: blink 1s steps(1) infinite; }
+
+  .dash-path {
+    border-top: 3px dashed rgba(20,22,44,0.25);
+  }
+
+  input, textarea, select {
+    font-family: 'VT323', monospace;
+    font-size: 19px;
+    background: var(--paper);
+    border: 3px solid var(--ink);
+  }
+  input::placeholder, textarea::placeholder { color: rgba(20,22,44,0.45); }
+
+  /* fixed-value utilities standing in for Tailwind arbitrary values (no JIT compiler available) */
+  .text-9px { font-size: 9px; }
+  .text-10px { font-size: 10px; }
+  .text-11px { font-size: 11px; }
+  .border-b-3 { border-bottom-width: 3px; border-bottom-style: solid; }
+  .h-3px { height: 3px; }
+  .w-3px { width: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-blink { animation: none; }
+    .btn-pixel, .card-pixel { transition: none; }
+  }
+
+  .scanlines::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom, rgba(251,249,241,0.05) 0px, rgba(251,249,241,0.05) 1px, transparent 1px, transparent 3px
+    );
+  }
+  
