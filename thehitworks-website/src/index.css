@@ -1,30 +1,30 @@
-
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400..700&display=swap");
 @import "tailwindcss";
 :root {
-  --milk: #FBF9F1;
-  --milk-deep: #EFE9D8;
+  --royal: #3046D8;
+  --royal-deep: #11184F;
+  --royal-mid: #202A78;
+  --milk: #F4F7FF;
+  --milk-deep: #E5EBFF;
   --paper: #FFFFFF;
-  --ink: #14162C;
-  --royal: #2B3EE0;
-  --royal-deep: #12175E;
-  --royal-mid: #1D24A6;
-  --gold: #F5B301;
+  --ink: #10142B;
+  --ink-70: #50566F;
+  --gold: #FFC928;
 }
 .site-root {
   background: var(--milk);
   color: var(--ink);
-  font-family: 'VT323', monospace;
+  font-family: 'Pixelify Sans', sans-serif;
   font-size: 19px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  cursor: url('/cursor-torch.svg') 8 2, auto;
 }
 .font-pixel {
   font-family: 'Press Start 2P', monospace;
   letter-spacing: 0.02em;
 }
-.font-term { font-family: 'VT323', monospace; }
-  /* --- color utilities (exact brand hex, not Tailwind defaults) --- */
+.font-term { font-family: 'Pixelify Sans', sans-serif; font-weight: 500; }
   .bg-milk { background-color: var(--milk); }
   .bg-milk-deep { background-color: var(--milk-deep); }
   .bg-paper { background-color: var(--paper); }
@@ -37,51 +37,67 @@
   .text-milk { color: var(--milk); }
   .text-royal { color: var(--royal); }
   .text-gold { color: var(--gold); }
-  .text-ink-70 { color: rgba(20,22,44,0.7); }
-  .text-milk-70 { color: rgba(251,249,241,0.72); }
+  .text-ink-70 { color: rgba(36,31,28,0.72); }
+  .text-milk-70 { color: rgba(255,247,224,0.75); }
   .border-ink { border-color: var(--ink); }
   .border-royal { border-color: var(--royal); }
   .border-milk { border-color: var(--milk); }
   .border-gold { border-color: var(--gold); }
-  /* --- pixel corner clip-paths: two step sizes --- */
-  .pixel-corners {
-    clip-path: polygon(
-      0 10px, 10px 10px, 10px 0, calc(100% - 10px) 0, calc(100% - 10px) 10px, 100% 10px,
-      100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px), calc(100% - 10px) 100%,
-      10px 100%, 10px calc(100% - 10px), 0 calc(100% - 10px)
-    );
-  }
-  .pixel-corners-sm {
-    clip-path: polygon(
-      0 6px, 6px 6px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
-      100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%,
-      6px 100%, 6px calc(100% - 6px), 0 calc(100% - 6px)
-    );
-  }
 
-  /* --- arcade button press interaction (the site's signature move) --- */
+  .pixel-corners, .pixel-corners-sm {
+    clip-path: none;
+    border-radius: 0;
+  }
+  html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--royal-deep);
+}
   .btn-pixel {
     border: 3px solid var(--ink);
-    box-shadow: 5px 5px 0 var(--ink);
-    transition: transform 0.08s steps(2), box-shadow 0.08s steps(2);
+    box-shadow:
+      inset -3px -3px 0 rgba(0,0,0,0.35),
+      inset 3px 3px 0 rgba(255,255,255,0.35),
+      3px 3px 0 var(--ink);
+    transition: transform 0.05s steps(1), box-shadow 0.05s steps(1), filter 0.1s linear;
   }
-  .btn-pixel:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--ink); }
-  .btn-pixel:active { transform: translate(5px, 5px); box-shadow: 0 0 0 var(--ink); }
+  .btn-pixel:hover { filter: brightness(1.08); }
+  .btn-pixel:active {
+    transform: translate(2px, 2px);
+    box-shadow:
+      inset 3px 3px 0 rgba(0,0,0,0.35),
+      inset -3px -3px 0 rgba(255,255,255,0.15);
+  }
   .btn-pixel:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
   .card-pixel {
     border: 3px solid var(--ink);
-    box-shadow: 6px 6px 0 var(--royal);
+    box-shadow:
+      inset -4px -4px 0 rgba(0,0,0,0.22),
+      inset 4px 4px 0 rgba(255,255,255,0.3),
+      6px 6px 0 var(--royal);
     transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
   }
-  .card-pixel:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--royal); }
+  .card-pixel:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+      inset -4px -4px 0 rgba(0,0,0,0.22),
+      inset 4px 4px 0 rgba(255,255,255,0.3),
+      8px 8px 0 var(--royal);
+  }
 
   .card-pixel-gold {
     border: 3px solid var(--ink);
-    box-shadow: 6px 6px 0 var(--gold);
+    box-shadow:
+      inset -4px -4px 0 rgba(0,0,0,0.22),
+      inset 4px 4px 0 rgba(255,255,255,0.3),
+      6px 6px 0 var(--gold);
   }
 
-  a, button { font-family: inherit; }
+  a, button { font-family: inherit; cursor: url('/cursor-torch.svg') 8 2, pointer; }
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
     outline: 3px solid var(--gold);
     outline-offset: 2px;
@@ -91,18 +107,17 @@
   .cursor-blink { animation: blink 1s steps(1) infinite; }
 
   .dash-path {
-    border-top: 3px dashed rgba(20,22,44,0.25);
+    border-top: 3px dashed rgba(36,31,28,0.28);
   }
 
   input, textarea, select {
-    font-family: 'VT323', monospace;
+    font-family: 'Pixelify Sans', sans-serif;
     font-size: 19px;
     background: var(--paper);
     border: 3px solid var(--ink);
   }
-  input::placeholder, textarea::placeholder { color: rgba(20,22,44,0.45); }
+  input::placeholder, textarea::placeholder { color: rgba(36,31,28,0.5); }
 
-  /* fixed-value utilities standing in for Tailwind arbitrary values (no JIT compiler available) */
   .text-9px { font-size: 9px; }
   .text-10px { font-size: 10px; }
   .text-11px { font-size: 11px; }
@@ -121,7 +136,26 @@
     inset: 0;
     pointer-events: none;
     background: repeating-linear-gradient(
-      to bottom, rgba(251,249,241,0.05) 0px, rgba(251,249,241,0.05) 1px, transparent 1px, transparent 3px
+      to bottom, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 3px
     );
   }
-  
+
+.drift-particle {
+  animation-name: driftCode;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@keyframes driftCode {
+  0% {
+    transform: translate3d(0, 120vh, 0);
+  }
+
+  100% {
+    transform: translate3d(0, -140vh, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drift-particle { animation: none; opacity: 0.15; }
+}

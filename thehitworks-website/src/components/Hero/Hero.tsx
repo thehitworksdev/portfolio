@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PixelStars from "../Common/PixelStars";
+import CodeBackground from "../Common/CodeBackground";
 import Eyebrow from "../Common/Eyebrow";
 import PixelButton from "../Common/Button";
 import { ArrowRight,ChevronRight,Users,Sparkles,ShieldCheck,Workflow,Award, Rocket, LifeBuoy, Quote } from "lucide-react";
@@ -9,8 +10,6 @@ import PixelCard from "../Common/Pixelcard";
 import { SERVICES, PROJECTS, PROCESS_STEPS, TECH_GROUPS, FAQS_HOME, TESTIMONIALS } from "../../data/content";
 import AccordionItem from "../Common/AccordionItem";
 
-
-
 export default function Hero({ navigate }: { navigate: (to: string) => void }) {
   const [openFaq, setOpenFaq] = useState(-1);
   const toPath = (id: string) => (id === "home" ? "/" : `/${id}`);
@@ -18,44 +17,26 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
     <section>
       <section className="bg-royal-deep relative overflow-hidden min-h-screen flex items-center">
         <PixelStars />
-        <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 grid lg:grid-cols-2 gap-14 items-center">
-          <div>
-            <div className="mb-6 flex items-center gap-2">
-              <Eyebrow light>Software Studio</Eyebrow>
-              <span className="cursor-blink text-gold font-pixel text-xs">_</span>
-            </div>
-            <h1 className="font-pixel text-2xl sm:text-3xl lg:text-4xl text-milk leading-relaxed">
-              The HIT Works
-            </h1>
-            <p className="mt-6 text-xl sm:text-2xl text-milk-70 font-term">
-              AI Solutions • Web Applications • Mobile Apps • Automation • Cloud Infrastructure
-            </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <PixelButton variant="gold" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("contact"))}>
-                ▶ Book Free Consultation
-              </PixelButton>
-              <PixelButton variant="ghostMilk" size="lg" onClick={() => navigate(toPath("portfolio"))}>
-                View Our Work
-              </PixelButton>
-            </div>
+        <CodeBackground />
+        <div className="relative max-w-3xl mx-auto px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 flex flex-col items-center text-center">
+          <div className="mb-6 flex items-center gap-2">
+            <Eyebrow light>Software Studio</Eyebrow>
+            <span className="cursor-blink text-gold font-pixel text-xs">_</span>
           </div>
-
-          <div className="flex justify-center lg:justify-end">
-            <svg viewBox="0 0 300 260" className="w-full max-w-sm">
-              <rect x="20" y="10" width="260" height="170" fill="#FBF9F1" stroke="#14162C" strokeWidth="4" />
-              <rect x="20" y="10" width="260" height="26" fill="#F5B301" stroke="#14162C" strokeWidth="4" />
-              <rect x="34" y="18" width="10" height="10" fill="#14162C" />
-              <rect x="50" y="18" width="10" height="10" fill="#14162C" />
-              <rect x="66" y="18" width="10" height="10" fill="#14162C" />
-              {[0,1,2,3,4].map((row) => (
-                <rect key={row} x="36" y={54 + row * 20} width={row % 2 === 0 ? 170 : 120} height="10" fill="#2B3EE0" opacity={row % 2 === 0 ? 1 : 0.55} />
-              ))}
-              <rect x="120" y="190" width="60" height="14" fill="#14162C" />
-              <rect x="90" y="204" width="120" height="12" fill="#14162C" />
-              <rect x="252" y="30" width="14" height="14" fill="#F5B301" />
-              <rect x="264" y="44" width="10" height="10" fill="#F5B301" opacity="0.7" />
-              <rect x="238" y="46" width="8" height="8" fill="#F5B301" opacity="0.5" />
-            </svg>
+          <h1 className="font-pixel text-2xl sm:text-3xl lg:text-4xl text-milk leading-relaxed">
+            The HIT Works
+          </h1>
+          <div className="w-16 h-[2px] bg-gold my-6" />
+          <p className="text-xl sm:text-2xl text-milk-70 font-term max-w-2xl">
+            AI Solutions • Web Applications • Mobile Apps • Automation • Cloud Infrastructure
+          </p>
+          <div className="mt-9 flex flex-wrap gap-4 justify-center">
+            <PixelButton variant="gold" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("contact"))}>
+              ▶ Book Free Consultation
+            </PixelButton>
+            <PixelButton variant="ghostMilk" size="lg" onClick={() => navigate(toPath("portfolio"))}>
+              View Our Work
+            </PixelButton>
           </div>
         </div>
       </section>
@@ -84,7 +65,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
                 </div>
                 <h3 className="font-term text-2xl text-ink mb-2">{s.title}</h3>
                 <p className="text-ink-70 text-lg mb-4">{s.tagline}</p>
-                <button onClick={() => navigate(toPath("/services"))} className="mt-auto font-pixel text-10px text-royal inline-flex items-center gap-2">
+                <button onClick={() => navigate(toPath("services"))} className="mt-auto font-pixel text-10px text-royal inline-flex items-center gap-2">
                   LEARN MORE <ChevronRight size={12} />
                 </button>
               </PixelCard>
@@ -130,7 +111,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
                 <p className="text-ink-70 text-lg mb-2"><span className="text-ink font-bold">Problem: </span>{p.problem}</p>
                 <p className="text-ink-70 text-lg mb-2"><span className="text-ink font-bold">Solution: </span>{p.solution}</p>
                 <p className="text-royal text-lg mb-4 font-bold">{p.result}</p>
-                <button onClick={() => navigate(toPath("/case-studies"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
+                <button onClick={() => navigate(toPath("case-studies"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
                   VIEW CASE STUDY <ChevronRight size={12} />
                 </button>
               </PixelCard>
@@ -196,7 +177,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
           <div className="text-center mt-8">
-            <button onClick={() => navigate(toPath("/technologies"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
+            <button onClick={() => navigate(toPath("technologies"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
               SEE FULL STACK <ChevronRight size={12} />
             </button>
           </div>
@@ -238,7 +219,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
           <div className="text-center mt-8">
-            <button onClick={() => navigate(toPath("/faq"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
+            <button onClick={() => navigate(toPath("faq"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
               VIEW ALL FAQS <ChevronRight size={12} />
             </button>
           </div>
@@ -252,12 +233,11 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             READY TO BUILD YOUR<br />NEXT SOFTWARE?
           </h2>
           <p className="text-xl text-ink-70 mb-9">Free consultation. No pressure, no jargon — just a clear plan for what to build first.</p>
-          <PixelButton variant="royal" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("/contact"))}>
+          <PixelButton variant="royal" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("contact"))}>
             Book a Free Consultation
           </PixelButton>
         </div>
       </section>
     </section>
   );
-}   
-
+}
