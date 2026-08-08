@@ -1,22 +1,20 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import Hero from "./components/Hero/Hero";
-// import About from "./pages/About";
-// import Services from "./pages/Services";
-// import Portfolio from "./pages/Portfolio";
-// import Contact from "./pages/Contact";
-// import Navbar from "./components/Navbar/Navbar"; 
-// import Footer from "./components/Footer/Footer"; 
-
-import { BrowserRouter } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
-import Blog from "./pages/Blog";
+import About from "./pages/About";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Home />
-      <Blog />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<div className="p-10 text-center font-term text-xl">Page not found — check your routes.</div>} />
+      </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

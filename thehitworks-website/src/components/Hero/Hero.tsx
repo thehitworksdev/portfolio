@@ -13,6 +13,7 @@ import AccordionItem from "../Common/AccordionItem";
 
 export default function Hero({ navigate }: { navigate: (to: string) => void }) {
   const [openFaq, setOpenFaq] = useState(-1);
+  const toPath = (id: string) => (id === "home" ? "/" : `/${id}`);
   return (
     <section>
       <section className="bg-royal-deep relative overflow-hidden min-h-screen flex items-center">
@@ -30,10 +31,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
               AI Solutions • Web Applications • Mobile Apps • Automation • Cloud Infrastructure
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <PixelButton variant="gold" size="lg" icon={ArrowRight} onClick={() => navigate("contact")}>
+              <PixelButton variant="gold" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("contact"))}>
                 ▶ Book Free Consultation
               </PixelButton>
-              <PixelButton variant="ghostMilk" size="lg" onClick={() => navigate("portfolio")}>
+              <PixelButton variant="ghostMilk" size="lg" onClick={() => navigate(toPath("portfolio"))}>
                 View Our Work
               </PixelButton>
             </div>
@@ -83,7 +84,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
                 </div>
                 <h3 className="font-term text-2xl text-ink mb-2">{s.title}</h3>
                 <p className="text-ink-70 text-lg mb-4">{s.tagline}</p>
-                <button onClick={() => navigate("services")} className="mt-auto font-pixel text-10px text-royal inline-flex items-center gap-2">
+                <button onClick={() => navigate(toPath("/services"))} className="mt-auto font-pixel text-10px text-royal inline-flex items-center gap-2">
                   LEARN MORE <ChevronRight size={12} />
                 </button>
               </PixelCard>
@@ -129,7 +130,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
                 <p className="text-ink-70 text-lg mb-2"><span className="text-ink font-bold">Problem: </span>{p.problem}</p>
                 <p className="text-ink-70 text-lg mb-2"><span className="text-ink font-bold">Solution: </span>{p.solution}</p>
                 <p className="text-royal text-lg mb-4 font-bold">{p.result}</p>
-                <button onClick={() => navigate("case-studies")} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
+                <button onClick={() => navigate(toPath("/case-studies"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
                   VIEW CASE STUDY <ChevronRight size={12} />
                 </button>
               </PixelCard>
@@ -195,7 +196,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
           <div className="text-center mt-8">
-            <button onClick={() => navigate("technologies")} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
+            <button onClick={() => navigate(toPath("/technologies"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
               SEE FULL STACK <ChevronRight size={12} />
             </button>
           </div>
@@ -237,7 +238,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
           <div className="text-center mt-8">
-            <button onClick={() => navigate("faq")} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
+            <button onClick={() => navigate(toPath("/faq"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
               VIEW ALL FAQS <ChevronRight size={12} />
             </button>
           </div>
@@ -251,7 +252,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             READY TO BUILD YOUR<br />NEXT SOFTWARE?
           </h2>
           <p className="text-xl text-ink-70 mb-9">Free consultation. No pressure, no jargon — just a clear plan for what to build first.</p>
-          <PixelButton variant="royal" size="lg" icon={ArrowRight} onClick={() => navigate("contact")}>
+          <PixelButton variant="royal" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("/contact"))}>
             Book a Free Consultation
           </PixelButton>
         </div>

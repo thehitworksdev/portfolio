@@ -10,11 +10,12 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const page = location.pathname;
+  const toPath = (id: string) => (id === "home" ? "/" : `/${id}`);
   return (
     <header className="sticky top-0 z-50 bg-milk border-b-3 border-ink">
       <div className="h-3px bg-gold w-full" />
       <div className="max-w-7xl mx-auto px-5 sm:px-6 h-20 flex items-center justify-between">
-        <button onClick={() => navigate("home")} className="flex items-center gap-3 shrink-0">
+        <button onClick={() => navigate(toPath("home"))} className="flex items-center gap-3 shrink-0">
           <span className="w-10 h-10 bg-royal border-2 border-ink pixel-corners-sm flex items-center justify-center">
             <Gamepad2 className="text-milk" size={20} />
           </span>
@@ -27,8 +28,8 @@ export default function Navbar() {
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
-              onClick={() => navigate(item.id)}
-              className={`pb-1 border-b-2 transition-colors ${page === item.id ? "text-royal border-gold" : "text-ink border-transparent hover:text-royal"}`}
+              onClick={() => navigate(toPath(item.id))}
+              className={`pb-1 border-b-2 transition-colors ${page === `/${item.id}` ? "text-royal border-gold" : "text-ink border-transparent hover:text-royal"}`}
             >
               {item.label}
             </button>
@@ -36,8 +37,8 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <PixelButton variant="ghost" onClick={() => navigate("pricing")}>Get a Quote</PixelButton>
-          <PixelButton variant="royal" onClick={() => navigate("contact")}>Book Consultation</PixelButton>
+          <PixelButton variant="ghost" onClick={() => navigate(toPath("pricing"))}>Get a Quote</PixelButton>
+          <PixelButton variant="royal" onClick={() => navigate(toPath("contact"))}>Book Consultation</PixelButton>
         </div>
 
         <button className="lg:hidden w-11 h-11 border-2 border-ink bg-milk-deep pixel-corners-sm flex items-center justify-center" onClick={() => setOpen(!open)} aria-label="Toggle menu">
@@ -51,16 +52,16 @@ export default function Navbar() {
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
-                onClick={() => { navigate(item.id); setOpen(false); }}
-                className={`text-left ${page === item.id ? "text-royal" : "text-ink"}`}
+                onClick={() => { navigate(toPath(item.id)); setOpen(false); }}
+                className={`text-left ${page === `/${item.id}` ? "text-royal" : "text-ink"}`}
               >
                 {item.label}
               </button>
             ))}
           </div>
           <div className="flex flex-col gap-3 mt-6">
-            <PixelButton variant="ghost" onClick={() => { navigate("pricing"); setOpen(false); }}>Get a Quote</PixelButton>
-            <PixelButton variant="royal" onClick={() => { navigate("contact"); setOpen(false); }}>Book Consultation</PixelButton>
+            <PixelButton variant="ghost" onClick={() => { navigate(toPath("pricing")); setOpen(false); }}>Get a Quote</PixelButton>
+            <PixelButton variant="royal" onClick={() => { navigate(toPath("contact")); setOpen(false); }}>Book Consultation</PixelButton>
           </div>
         </div>
       ) : null}

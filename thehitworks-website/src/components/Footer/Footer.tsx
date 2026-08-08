@@ -1,13 +1,14 @@
 import { useState } from "react";
 import PixelButton from "../Common/Button";
-import PixelStars from "../Common/PixelStars";
-import { Gamepad2, Github, Linkedin, Twitter, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
+import { Gamepad2, MapPin, Phone, Mail } from "lucide-react";
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const toPath = (id: string) => (id === "home" ? "/" : `/${id}`);
   return (
     <footer className="bg-royal-deep text-milk relative">
       <div className="h-2 w-full" style={{ background: "repeating-linear-gradient(90deg, #F5B301 0 10px, #12175E 10px 20px)" }} />
@@ -23,7 +24,7 @@ export default function Footer() {
             We design and build AI-powered software, web platforms, and mobile apps for businesses that want to move faster than their spreadsheets.
           </p>
           <div className="flex gap-3">
-            {[Github, Linkedin, Twitter, Instagram, Youtube].map((Icon, i) => (
+            {[FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaYoutube].map((Icon, i) => (
               <span key={i} className="w-9 h-9 border-2 border-milk pixel-corners-sm flex items-center justify-center hover:bg-milk hover:text-royal-deep cursor-pointer transition-colors">
                 <Icon size={15} />
               </span>
@@ -34,11 +35,11 @@ export default function Footer() {
         <div>
           <div className="font-pixel text-10px text-gold mb-4">QUICK LINKS</div>
           <div className="flex flex-col gap-3 text-lg font-term text-milk-70">
-            <button onClick={() => navigate("process")} className="text-left hover:text-milk">Our Process</button>
-            <button onClick={() => navigate("pricing")} className="text-left hover:text-milk">Pricing</button>
-            <button onClick={() => navigate("careers")} className="text-left hover:text-milk">Careers</button>
-            <button onClick={() => navigate("faq")} className="text-left hover:text-milk">FAQ</button>
-            <button onClick={() => navigate("blog")} className="text-left hover:text-milk">Blog</button>
+            <button onClick={() => navigate(toPath("process"))} className="text-left hover:text-milk">Our Process</button>
+            <button onClick={() => navigate(toPath("pricing"))} className="text-left hover:text-milk">Pricing</button>
+            <button onClick={() => navigate(toPath("careers"))} className="text-left hover:text-milk">Careers</button>
+            <button onClick={() => navigate(toPath("faq"))} className="text-left hover:text-milk">FAQ</button>
+            <button onClick={() => navigate(toPath("blog"))} className="text-left hover:text-milk">Blog</button>
           </div>
         </div>
 
