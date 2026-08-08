@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import PixelStars from "../Common/PixelStars";
 import CodeBackground from "../Common/CodeBackground";
 import Eyebrow from "../Common/Eyebrow";
@@ -10,12 +10,70 @@ import PixelCard from "../Common/Pixelcard";
 import { SERVICES, PROJECTS, PROCESS_STEPS, TECH_GROUPS, FAQS_HOME, TESTIMONIALS } from "../../data/content";
 import AccordionItem from "../Common/AccordionItem";
 
+function FadeSection({
+  children,
+  className,
+  initiallyVisible = false,
+  characterSection,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  initiallyVisible?: boolean;
+  characterSection?: string;
+})  {
+  const ref = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(initiallyVisible);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Consider a section "visible" once a meaningful slice of it is
+        // on screen, and "hidden" again once it's mostly scrolled past —
+        // this is what produces the fade-out-then-fade-in feel.
+        if (entry.isIntersecting && entry.intersectionRatio > 0.15) {
+          setVisible(true);
+        } else if (entry.intersectionRatio < 0.05) {
+          setVisible(false);
+        }
+      },
+      { threshold: [0, 0.05, 0.15, 0.3, 0.6, 1] }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={ref}
+      data-character-section={characterSection}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0px)" : "translateY(32px)",
+        transition: "opacity 0.7s ease-out, transform 0.7s ease-out",
+        willChange: "opacity, transform",
+      }}
+    >
+      {children}
+    </section>
+  );
+}
+
 export default function Hero({ navigate }: { navigate: (to: string) => void }) {
   const [openFaq, setOpenFaq] = useState(-1);
   const toPath = (id: string) => (id === "home" ? "/" : `/${id}`);
   return (
-    <section>
-      <section className="bg-royal-deep relative overflow-hidden min-h-screen flex items-center">
+    <section >
+      
+      <FadeSection
+        initiallyVisible
+        characterSection="hero"
+        className="bg-royal-deep relative overflow-hidden min-h-screen flex items-center"
+      >
         <PixelStars />
         <CodeBackground />
         <div className="relative max-w-3xl mx-auto px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 flex flex-col items-center text-center">
@@ -39,10 +97,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             </PixelButton>
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* TRUSTED BY */}
-      <section className="bg-milk-deep border-b-2 border-ink">
+      <FadeSection characterSection="trusted" className="bg-milk-deep border-b-2 border-ink">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center gap-5 sm:gap-8">
           <span className="font-pixel text-10px text-ink shrink-0">BUILT FOR TEAMS IN</span>
           <div className="flex flex-wrap justify-center gap-3">
@@ -51,10 +109,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* SERVICES SNAPSHOT */}
-      <section className="bg-milk py-20 sm:py-24">
+      <FadeSection characterSection="services" className="bg-milk py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader eyebrow="What we build" title="SERVICES SNAPSHOT" sub="Ten ways we help businesses turn ideas into shipped software." />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -72,10 +130,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* WHY CHOOSE US */}
-      <section className="bg-royal-deep py-20 sm:py-24 relative overflow-hidden">
+      <FadeSection characterSection="why-us" className="bg-royal-deep py-20 sm:py-24 relative overflow-hidden">
         <PixelStars />
         <div className="relative max-w-7xl mx-auto px-6">
           <SectionHeader eyebrow="Why THE HIT WORKS" title="BUILT DIFFERENT, DELIVERED RELIABLY" light />
@@ -92,10 +150,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* FEATURED PROJECTS */}
-      <section className="bg-milk py-20 sm:py-24">
+      <FadeSection characterSection="projects" className="bg-milk py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader eyebrow="Recent work" title="FEATURED PROJECTS" sub="A few builds we're proud of — full write-ups in Case Studies." />
           <div className="grid md:grid-cols-2 gap-6">
@@ -118,10 +176,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* PROCESS — level map (signature element) */}
-      <section className="bg-milk-deep py-20 sm:py-24">
+      <FadeSection characterSection="process" className="bg-milk-deep py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader eyebrow="How we work" title="THE DEVELOPMENT QUEST MAP" sub="Seven levels between your idea and a live product. Order matters — each level clears before the next starts." />
           <div className="hidden lg:block relative">
@@ -158,10 +216,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* TECHNOLOGIES (compact) */}
-      <section className="bg-milk py-20 sm:py-24">
+      <FadeSection characterSection="technologies" className="bg-milk py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader eyebrow="Our loadout" title="TECHNOLOGIES WE USE" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
@@ -182,10 +240,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             </button>
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* TESTIMONIALS */}
-      <section className="bg-royal-deep py-20 sm:py-24 relative overflow-hidden">
+      <FadeSection characterSection="testimonials" className="bg-royal-deep py-20 sm:py-24 relative overflow-hidden">
         <PixelStars />
         <div className="relative max-w-7xl mx-auto px-6">
           <SectionHeader eyebrow="Client feedback" title="WHAT CLIENTS SAY" light />
@@ -207,10 +265,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             ))}
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* FAQ preview */}
-      <section className="bg-milk py-20 sm:py-24">
+      <FadeSection characterSection="faq" className="bg-milk py-20 sm:py-24">
         <div className="max-w-3xl mx-auto px-6">
           <SectionHeader eyebrow="Good to know" title="FREQUENTLY ASKED QUESTIONS" />
           <div>
@@ -224,10 +282,10 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             </button>
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* CTA */}
-      <section className="bg-gold py-20 relative overflow-hidden">
+      <FadeSection characterSection="cta" className="bg-gold py-20 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="font-pixel text-xl sm:text-3xl text-ink leading-relaxed mb-6">
             READY TO BUILD YOUR<br />NEXT SOFTWARE?
@@ -237,7 +295,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             Book a Free Consultation
           </PixelButton>
         </div>
-      </section>
+      </FadeSection>
     </section>
   );
 }

@@ -1,0 +1,138 @@
+{
+  "idle_standing": {
+    "file": "/sprites/idle_standing.png",
+    "frameCount": 4,
+    "frameWidth": 86,
+    "frameHeight": 151,
+    "fps": 6,
+    "loop": true
+  },
+  "idle_whistle": {
+    "file": "/sprites/idle_whistle.png",
+    "frameCount": 4,
+    "frameWidth": 92,
+    "frameHeight": 150,
+    "fps": 6,
+    "loop": true
+  },
+  "idle_eating_candy": {
+    "file": "/sprites/idle_eating_candy.png",
+    "frameCount": 3,
+    "frameWidth": 84,
+    "frameHeight": 148,
+    "fps": 5,
+    "loop": true
+  },
+  "offer_candy": {
+    "file": "/sprites/offer_candy.png",
+    "frameCount": 1,
+    "frameWidth": 107,
+    "frameHeight": 148,
+    "fps": 4,
+    "loop": false
+  },
+  "walk": {
+    "file": "/sprites/walk.png",
+    "frameCount": 5,
+    "frameWidth": 92,
+    "frameHeight": 147,
+    "fps": 8,
+    "loop": true
+  },
+  "run": {
+    "file": "/sprites/run.png",
+    "frameCount": 5,
+    "frameWidth": 96,
+    "frameHeight": 147,
+    "fps": 10,
+    "loop": true
+  },
+  "scooter_drive": {
+    "file": "/sprites/scooter_drive.png",
+    "frameCount": 5,
+    "frameWidth": 115,
+    "frameHeight": 155,
+    "fps": 8,
+    "loop": true
+  },
+  "dance": {
+    "file": "/sprites/dance.png",
+    "frameCount": 5,
+    "frameWidth": 96,
+    "frameHeight": 147,
+    "fps": 8,
+    "loop": true
+  },
+  "talking": {
+    "file": "/sprites/talking.png",
+    "frameCount": 3,
+    "frameWidth": 97,
+    "frameHeight": 148,
+    "fps": 5,
+    "loop": true
+  },
+  "angry": {
+    "file": "/sprites/angry.png",
+    "frameCount": 2,
+    "frameWidth": 87,
+    "frameHeight": 144,
+    "fps": 4,
+    "loop": true
+  },
+  "thinking": {
+    "file": "/sprites/thinking.png",
+    "frameCount": 2,
+    "frameWidth": 81,
+    "frameHeight": 141,
+    "fps": 3,
+    "loop": true
+  },
+  "greet_wave": {
+    "file": "/sprites/greet_wave.png",
+    "frameCount": 1,
+    "frameWidth": 99,
+    "frameHeight": 151,
+    "fps": 4,
+    "loop": false
+  },
+  "surprised": {
+    "file": "/sprites/surprised.png",
+    "frameCount": 1,
+    "frameWidth": 80,
+    "frameHeight": 141,
+    "fps": 4,
+    "loop": false
+  },
+  "celebration": {
+    "file": "/sprites/celebration.png",
+    "frameCount": 2,
+    "frameWidth": 110,
+    "frameHeight": 149,
+    "fps": 6,
+    "loop": true
+  },
+  "tired": {
+    "file": "/sprites/tired.png",
+    "frameCount": 1,
+    "frameWidth": 93,
+    "frameHeight": 130,
+    "fps": 3,
+    "loop": false
+  },
+  "sleep_nap": {
+    "file": "/sprites/sleep_nap.png",
+    "frameCount": 1,
+    "frameWidth": 132,
+    "frameHeight": 122,
+    "fps": 3,
+    "loop": true
+  },
+  "using_laptop": {
+    "file": "/sprites/using_laptop.png",
+    "frameCount": 1,
+    "frameWidth": 140,
+    "frameHeight": 131,
+    "fps": 3,
+    "loop": true
+  }
+}

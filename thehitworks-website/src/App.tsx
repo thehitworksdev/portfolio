@@ -15,11 +15,13 @@ import Faq from "./components/FAQ/FAQ";
 import Solutions from "./pages/Solutions";
 import CaseStudies from "./pages/CaseStudies";
 import TechnologiesPage from "./components/Technologies/Technologies";
+import CharacterWidget from "./character/CharacterWidget"; // <-- added
 
 export default function App() {
   return (
     <BrowserRouter>
       <CursorLight />
+      <CharacterWidget /> {/* <-- added: sibling to Routes, so it persists across every page */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -27,7 +29,7 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/technologies" element={<TechnologiesPage />} />
-        <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/process" element={<Process />} />
@@ -40,4 +42,4 @@ export default function App() {
       <Footer />
     </BrowserRouter>
   );
-} 
+}
