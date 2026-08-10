@@ -3,11 +3,11 @@ import PixelStars from "../Common/PixelStars";
 import CodeBackground from "../Common/CodeBackground";
 import Eyebrow from "../Common/Eyebrow";
 import PixelButton from "../Common/Button";
-import { ArrowRight,ChevronRight,Users,Sparkles,ShieldCheck,Workflow,Award, Rocket, LifeBuoy, Quote } from "lucide-react";
+import { ArrowRight,ChevronRight,Users,Sparkles,ShieldCheck,Workflow,Award, Rocket, LifeBuoy } from "lucide-react";
 import SectionHeader from "../Common/SectionHeader";
 import Chip from "../Common/Chip";
 import PixelCard from "../Common/Pixelcard";
-import { SERVICES, PROJECTS, PROCESS_STEPS, TECH_GROUPS, FAQS_HOME, TESTIMONIALS } from "../../data/content";
+import { SERVICES, PROJECTS, PROCESS_STEPS, TECH_GROUPS, FAQS_HOME } from "../../data/content";
 import AccordionItem from "../Common/AccordionItem";
 
 function FadeSection({
@@ -81,7 +81,19 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             <Eyebrow light>Software Studio</Eyebrow>
             <span className="cursor-blink text-gold font-pixel text-xs">_</span>
           </div>
-          <h1 className="font-pixel text-2xl sm:text-3xl lg:text-4xl text-milk leading-relaxed">
+           <h1
+            className="
+              font-pixel
+              text-[1.5rem]
+              sm:text-4xl
+              md:text-5xl
+              lg:text-6xl
+              text-milk
+              leading-none
+              whitespace-nowrap
+              text-center
+            "
+          >
             The HIT Works
           </h1>
           <div className="w-16 h-[2px] bg-gold my-6" />
@@ -89,7 +101,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
             AI Solutions • Web Applications • Mobile Apps • Automation • Cloud Infrastructure
           </p>
           <div className="mt-9 flex flex-wrap gap-4 justify-center">
-            <PixelButton variant="gold" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("contact"))}>
+            <PixelButton variant="gold" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("/contact"))}>
               ▶ Book Free Consultation
             </PixelButton>
             <PixelButton variant="ghostMilk" size="lg" onClick={() => navigate(toPath("portfolio"))}>
@@ -139,13 +151,26 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
           <SectionHeader eyebrow="Why THE HIT WORKS" title="BUILT DIFFERENT, DELIVERED RELIABLY" light />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              ["Dedicated Team", Users], ["Latest Technologies", Sparkles], ["Secure Development", ShieldCheck],
-              ["Agile Process", Workflow], ["Affordable Pricing", Award], ["Fast Delivery", Rocket],
-              ["Long-Term Support", LifeBuoy],
-            ].map(([label, Icon]) => (
-              <div key={label} className="bg-royal-mid border-2 border-milk pixel-corners-sm p-5 flex items-center gap-3">
-                <Icon className="text-gold shrink-0" size={22} />
-                <span className="font-term text-xl text-milk">{label}</span>
+              { label: "Dedicated Team", icon: Users },
+              { label: "Latest Technologies", icon: Sparkles },
+              { label: "Secure Development", icon: ShieldCheck },
+              { label: "Agile Process", icon: Workflow },
+              { label: "Affordable Pricing", icon: Award },
+              { label: "Fast Delivery", icon: Rocket },
+              { label: "Long-Term Support", icon: LifeBuoy },
+            ].map(({ label, icon: Icon }) => (
+              <div
+                key={label}
+                className="bg-royal-mid border-2 border-milk pixel-corners-sm p-5 flex items-center gap-3"
+              >
+                <Icon
+                  className="text-gold shrink-0"
+                  size={22}
+                />
+
+                <span className="font-term text-xl text-milk">
+                  {label}
+                </span>
               </div>
             ))}
           </div>
@@ -155,7 +180,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
       {/* FEATURED PROJECTS */}
       <FadeSection characterSection="projects" className="bg-milk py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader eyebrow="Recent work" title="FEATURED PROJECTS" sub="A few builds we're proud of — full write-ups in Case Studies." />
+          <SectionHeader eyebrow="Recent work" title="FEATURED PROJECTS" sub="A few builds we're proud of  full write-ups in Case Studies." />
           <div className="grid md:grid-cols-2 gap-6">
             {PROJECTS.slice(0, 4).map((p) => (
               <PixelCard key={p.name}>
@@ -169,19 +194,19 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
                 <p className="text-ink-70 text-lg mb-2"><span className="text-ink font-bold">Problem: </span>{p.problem}</p>
                 <p className="text-ink-70 text-lg mb-2"><span className="text-ink font-bold">Solution: </span>{p.solution}</p>
                 <p className="text-royal text-lg mb-4 font-bold">{p.result}</p>
-                <button onClick={() => navigate(toPath("case-studies"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
+                {/* <button onClick={() => navigate(toPath("case-studies"))} className="font-pixel text-10px text-royal inline-flex items-center gap-2">
                   VIEW CASE STUDY <ChevronRight size={12} />
-                </button>
+                </button> */}
               </PixelCard>
             ))}
           </div>
         </div>
       </FadeSection>
 
-      {/* PROCESS — level map (signature element) */}
+      {/* PROCESS  level map (signature element) */}
       <FadeSection characterSection="process" className="bg-milk-deep py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader eyebrow="How we work" title="THE DEVELOPMENT QUEST MAP" sub="Seven levels between your idea and a live product. Order matters — each level clears before the next starts." />
+          <SectionHeader eyebrow="How we work" title="THE DEVELOPMENT QUEST MAP" sub="Seven levels between your idea and a live product. Order matters  each level clears before the next starts." />
           <div className="hidden lg:block relative">
             <div className="absolute top-1/2 left-0 right-0 dash-path" />
             <div className="relative grid grid-cols-7 gap-4">
@@ -243,27 +268,100 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
       </FadeSection>
 
       {/* TESTIMONIALS */}
-      <FadeSection characterSection="testimonials" className="bg-royal-deep py-20 sm:py-24 relative overflow-hidden">
+     <FadeSection
+        characterSection="next-project"
+        className="bg-royal-deep py-20 sm:py-24 relative overflow-hidden"
+      >
         <PixelStars />
+
         <div className="relative max-w-7xl mx-auto px-6">
-          <SectionHeader eyebrow="Client feedback" title="WHAT CLIENTS SAY" light />
+
+          <SectionHeader
+            eyebrow="Your turn"
+            title="YOUR IDEA COULD BE NEXT"
+            light
+          />
+
+         <p className="text-white/80 text-center max-w-2xl mx-auto text-lg sm:text-xl mb-12">
+            Have an idea, a business problem, or something you wish existed?
+            Let’s turn it into something real.
+          </p>
+
           <div className="grid md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t) => (
-              <div key={t.name} className="bg-milk border-2 border-gold pixel-corners-sm p-6">
-                <Quote className="text-royal mb-3" size={22} />
-                <p className="text-ink text-lg mb-5">{t.quote}</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-royal text-milk font-pixel text-10px flex items-center justify-center pixel-corners-sm">
-                    {t.name.split(" ").map((n) => n[0]).join("")}
-                  </div>
-                  <div>
-                    <div className="font-term text-lg text-ink">{t.name}</div>
-                    <div className="text-sm text-ink-70">{t.role}</div>
-                  </div>
-                </div>
+
+            {/* IDEA */}
+            <div className="bg-milk border-2 border-gold pixel-corners-sm p-6">
+              <div className="w-12 h-12 bg-royal text-milk font-pixel flex items-center justify-center pixel-corners-sm mb-5">
+                01
               </div>
-            ))}
+
+              <h3 className="font-term text-2xl text-ink mb-3">
+                GOT AN IDEA?
+              </h3>
+
+              <p className="text-ink-70 text-lg">
+                You bring the idea. We’ll help figure out what it takes to
+                turn it into a working product.
+              </p>
+            </div>
+
+            {/* PROBLEM */}
+            <div className="bg-milk border-2 border-gold pixel-corners-sm p-6">
+              <div className="w-12 h-12 bg-royal text-milk font-pixel flex items-center justify-center pixel-corners-sm mb-5">
+                02
+              </div>
+
+              <h3 className="font-term text-2xl text-ink mb-3">
+                HAVE A PROBLEM?
+              </h3>
+
+              <p className="text-ink-70 text-lg">
+                Tell us what’s slowing your business down. We’ll explore
+                where software, automation, or AI can help.
+              </p>
+            </div>
+
+            {/* NEXT PROJECT */}
+            <div className="bg-milk border-2 border-gold pixel-corners-sm p-6">
+              <div className="w-12 h-12 bg-royal text-milk font-pixel flex items-center justify-center pixel-corners-sm mb-5">
+                03
+              </div>
+
+              <h3 className="font-term text-2xl text-ink mb-3">
+                BUILD WITH US
+              </h3>
+
+              <p className="text-ink-70 text-lg">
+                From planning to deployment, we’ll work with you to build
+                something useful, reliable, and ready for the real world.
+              </p>
+            </div>
+
           </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+
+            <p className="font-pixel text-gold text-sm mb-5">
+              MISSION STATUS: OPEN FOR NEW PROJECTS_
+            </p>
+
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center
+                        bg-royal text-milk
+                        border-2 border-gold
+                        pixel-corners-sm
+                        px-8 py-4
+                        font-term text-xl
+                        hover:translate-y-[-2px]
+                        transition-transform"
+            >
+              START A PROJECT →
+            </a>
+
+          </div>
+
         </div>
       </FadeSection>
 
@@ -290,8 +388,8 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
           <h2 className="font-pixel text-xl sm:text-3xl text-ink leading-relaxed mb-6">
             READY TO BUILD YOUR<br />NEXT SOFTWARE?
           </h2>
-          <p className="text-xl text-ink-70 mb-9">Free consultation. No pressure, no jargon — just a clear plan for what to build first.</p>
-          <PixelButton variant="royal" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("contact"))}>
+          <p className="text-xl text-ink-70 mb-9">Free consultation. No pressure, no jargon  just a clear plan for what to build first.</p>
+          <PixelButton variant="royal" size="lg" icon={ArrowRight} onClick={() => navigate(toPath("/contact"))}>
             Book a Free Consultation
           </PixelButton>
         </div>

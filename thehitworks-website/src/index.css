@@ -1,5 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400..700&display=swap");
 @import "tailwindcss";
+html {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 :root {
   --royal: #3046D8;
   --royal-deep: #11184F;
@@ -48,14 +73,6 @@
     clip-path: none;
     border-radius: 0;
   }
-  html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  background: var(--royal-deep);
-}
   .btn-pixel {
     border: 3px solid var(--ink);
     box-shadow:
@@ -158,4 +175,54 @@ body,
 }
 @media (prefers-reduced-motion: reduce) {
   .drift-particle { animation: none; opacity: 0.15; }
+}
+
+@keyframes chip-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes burst-out {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.4);
+  }
+}
+.animate-chip-in {
+  animation: chip-in 0.4s ease-out forwards;
+}
+
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  line-height: 1.5 !important;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+.contact-form select,
+.contact-form option {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 16px !important;
+}
+.normal-text {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.5;
 }

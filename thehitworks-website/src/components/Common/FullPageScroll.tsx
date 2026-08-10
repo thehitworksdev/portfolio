@@ -1,10 +1,9 @@
 import {
-  ReactNode,
   useEffect,
   useRef,
   useState,
 } from "react";
-
+import type { ReactNode } from "react";
 interface FullPageScrollProps {
   children: ReactNode[];
 }

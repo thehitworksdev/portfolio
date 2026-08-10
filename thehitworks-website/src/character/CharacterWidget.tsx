@@ -28,10 +28,16 @@ export default function CharacterWidget() {
 
         zIndex: 9999,
 
+        // Keep character interaction
         cursor: "pointer",
-        pointerEvents: "auto",
 
-        // Center character around X position
+        /*
+         * IMPORTANT:
+         * The character layer itself must NOT block
+         * HTML elements underneath it.
+         */
+        pointerEvents: "none",
+
         transform: "translateX(-50%)",
       }}
     >
@@ -39,10 +45,11 @@ export default function CharacterWidget() {
         <div
           style={{
             position: "absolute",
+
             top: 4,
             left: "50%",
-            transform:
-              "translateX(-50%)",
+
+            transform: "translateX(-50%)",
 
             background: "#fff",
             color: "#111",
@@ -58,6 +65,7 @@ export default function CharacterWidget() {
             boxShadow:
               "0 2px 8px rgba(0,0,0,0.25)",
 
+            // Speech bubble shouldn't block anything
             pointerEvents: "none",
 
             zIndex: 2,
@@ -68,10 +76,11 @@ export default function CharacterWidget() {
           <div
             style={{
               position: "absolute",
+
               bottom: -6,
               left: "50%",
-              transform:
-                "translateX(-50%)",
+
+              transform: "translateX(-50%)",
 
               width: 0,
               height: 0,
@@ -99,8 +108,13 @@ export default function CharacterWidget() {
           alpha: true,
         }}
         style={{
-          background:
-            "transparent",
+          background: "transparent",
+
+          /*
+           * IMPORTANT:
+           * Canvas must not capture browser clicks/touches.
+           */
+          pointerEvents: "none",
         }}
       >
         <SpriteCharacter

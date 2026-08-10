@@ -29,16 +29,16 @@ const NAV_ITEMS = [
   { id: "services", label: "Services" },
   { id: "solutions", label: "Solutions" },
   { id: "portfolio", label: "Portfolio" },
-  { id: "case-studies", label: "Case Studies" },
+  // { id: "case-studies", label: "Case Studies" },
   { id: "technologies", label: "Technologies" },
   { id: "about", label: "About" },
-  { id: "blog", label: "Blog" },
+  // { id: "blog", label: "Blog" },
   { id: "contact", label: "Contact" },
 ];
 
 const SERVICES = [
   { id: "ai", icon: Bot, title: "AI Development", tagline: "Turn data into decisions",
-    overview: "Custom AI models and intelligent systems that turn your data into decisions — from predictive analytics to computer vision.",
+    overview: "Custom AI models and intelligent systems that turn your data into decisions  from predictive analytics to computer vision.",
     benefits: ["Faster decisions with predictive models", "Automates manual analysis work", "Scales with your data, not your headcount", "Built on production-grade ML pipelines"],
     process: ["Data audit", "Model selection", "Training & tuning", "Integration", "Monitoring"],
     tech: ["Python", "PyTorch", "TensorFlow", "OpenAI API", "LangChain"],
@@ -59,28 +59,28 @@ const SERVICES = [
     useCases: ["Customer apps", "Field service apps", "On-demand platforms"],
     startingFrom: "₹60,000" },
   { id: "saas", icon: Layers, title: "SaaS Development", tagline: "Ready for your first customer",
-    overview: "Multi-tenant SaaS platforms with billing, auth, and dashboards built in — ready to onboard your first paying customer.",
+    overview: "Multi-tenant SaaS platforms with billing, auth, and dashboards built in  ready to onboard your first paying customer.",
     benefits: ["Multi-tenant from the ground up", "Billing built in (Stripe/Razorpay)", "Role-based access control", "Usage analytics dashboard"],
     process: ["Product scoping", "Architecture", "MVP build", "Beta testing", "Scale-up"],
     tech: ["Next.js", "PostgreSQL", "Stripe", "AWS", "Redis"],
     useCases: ["B2B platforms", "Vertical SaaS", "Internal tools gone external"],
     startingFrom: "₹1,50,000" },
-  { id: "uiux", icon: Palette, title: "UI/UX Design", tagline: "Tested before it's built",
-    overview: "Interfaces people actually enjoy using — researched, wireframed, and tested before a single line of code is written.",
-    benefits: ["User research before design", "Clickable prototypes", "Design systems for consistency", "Accessibility built in"],
-    process: ["Research", "Wireframes", "Visual design", "Prototype", "Handoff"],
-    tech: ["Figma", "Framer", "Adobe XD"],
-    useCases: ["Product redesigns", "New app UI", "Design systems"],
-    startingFrom: "₹25,000" },
+  // { id: "uiux", icon: Palette, title: "UI/UX Design", tagline: "Tested before it's built",
+  //   overview: "Interfaces people actually enjoy using  researched, wireframed, and tested before a single line of code is written.",
+  //   benefits: ["User research before design", "Clickable prototypes", "Design systems for consistency", "Accessibility built in"],
+  //   process: ["Research", "Wireframes", "Visual design", "Prototype", "Handoff"],
+  //   tech: ["Figma", "Framer", "Adobe XD"],
+  //   useCases: ["Product redesigns", "New app UI", "Design systems"],
+  //   startingFrom: "₹25,000" },
   { id: "cloud", icon: Cloud, title: "Cloud Deployment", tagline: "Infrastructure that stays up",
-    overview: "Reliable infrastructure on AWS or Azure — provisioned, secured, and monitored so your app stays up.",
+    overview: "Reliable infrastructure on AWS or Azure  provisioned, secured, and monitored so your app stays up.",
     benefits: ["Auto-scaling infrastructure", "Daily automated backups", "99.9% uptime target", "Cost-optimized architecture"],
     process: ["Infra audit", "Architecture design", "Migration", "Monitoring setup", "Handover"],
     tech: ["AWS", "Azure", "Docker", "Terraform", "Kubernetes"],
     useCases: ["App migrations", "New deployments", "Disaster recovery"],
     startingFrom: "₹20,000" },
   { id: "api", icon: Server, title: "API Development", tagline: "Documented and versioned",
-    overview: "Documented, versioned APIs that your team — or your partners — can build on with confidence.",
+    overview: "Documented, versioned APIs that your team  or your partners  can build on with confidence.",
     benefits: ["OpenAPI/Swagger documented", "Rate-limited & secured", "Versioned for safe upgrades", "Webhook support"],
     process: ["Spec design", "Development", "Testing", "Documentation", "Deployment"],
     tech: ["Node.js", "FastAPI", "GraphQL", "REST", "PostgreSQL"],
@@ -94,7 +94,7 @@ const SERVICES = [
     useCases: ["Release automation", "Environment management", "Monitoring & alerting"],
     startingFrom: "₹25,000" },
   { id: "agents", icon: Cpu, title: "AI Agents", tagline: "Handles the routine work",
-    overview: "Autonomous agents that handle support tickets, data entry, and research — so your team handles the exceptions, not the routine.",
+    overview: "Autonomous agents that handle support tickets, data entry, and research  so your team handles the exceptions, not the routine.",
     benefits: ["Handles multi-step tasks unattended", "Connects to your existing tools", "Human-in-the-loop where it counts", "Learns from your documentation"],
     process: ["Use-case mapping", "Agent design", "Tool integration", "Testing", "Rollout"],
     tech: ["LangChain", "OpenAI API", "Claude API", "Vector DBs"],
@@ -145,30 +145,64 @@ const INDUSTRIES = [
 ];
 
 const PROJECTS = [
-  { name: "MediTrack", category: "AI", tags: ["React", "Node.js", "PostgreSQL"],
-    problem: "Clinic staff lost 3+ hours a day looking up patient records across disconnected spreadsheets.",
-    solution: "A unified patient dashboard with real-time record sync and automated appointment reminders.",
-    result: "Admin time down 68% · No-shows down 40%" },
-  { name: "ShelfSense", category: "AI", tags: ["Python", "TensorFlow", "AWS"],
-    problem: "Frequent stockouts caused by manual, spreadsheet-based inventory forecasting.",
-    solution: "An AI demand-forecasting engine integrated directly with their point-of-sale system.",
-    result: "Stockouts down 45% · Excess inventory cost down 30%" },
-  { name: "RouteWise", category: "Mobile", tags: ["Flutter", "Node.js", "Maps API"],
-    problem: "A delivery fleet relying on manual route planning kept missing delivery windows.",
-    solution: "A mobile route-optimization app with live tracking for drivers and dispatchers.",
-    result: "Delivery time down 32% · Fuel cost down 18%" },
-  { name: "FlowDesk", category: "Web", tags: ["Next.js", "PostgreSQL", "Stripe"],
-    problem: "An early-stage startup needed a billable, multi-tenant tool with no engineering team of their own.",
-    solution: "A full SaaS MVP delivered in 10 weeks — billing, team roles, and analytics included.",
-    result: "200+ teams onboarded within 3 months" },
-  { name: "SiteGuard", category: "Automation", tags: ["n8n", "Python", "REST"],
-    problem: "A facilities team manually cross-checked safety inspection logs every week.",
-    solution: "An automated workflow that flags overdue inspections and routes reports automatically.",
-    result: "Reporting time down from 6 hrs to 40 min/week" },
-  { name: "Loomboard", category: "UI Design", tags: ["Figma", "Design System"],
-    problem: "A growing SaaS product had three different button styles across its own app.",
-    solution: "A full design system and component library built for consistency at scale.",
-    result: "Design-to-dev handoff time cut in half" },
+  {
+    name: "BrightMinds Arena",
+    category: "Education",
+    tags: ["React", "Django", "Supabase"],
+    problem:
+      "Schools and teachers needed a centralized platform to manage students, learning materials, and restricted online assessments.",
+    solution:
+      "A school management platform with student management, teaching materials, tests, leaderboards, and high-restriction assessment controls.",
+    result:
+      "Centralized student management · Secure online assessments",
+  },
+
+  {
+    name: "AwareNet",
+    category: "Mobile",
+    tags: ["Flutter", "Firebase", "Node.js"],
+    problem:
+      "A college hackathon required a connected mobile solution for farmer drought alerts and student scheme eligibility.",
+    solution:
+      "A Flutter Android MVP connected to Firebase Realtime Database and Node.js Cloud Functions with drought-alert, scheme-eligibility, and SMS workflows.",
+    result:
+      "Hackathon MVP · Real-time Firebase integration",
+  },
+
+  {
+    name: "Clinical Guidance System",
+    category: "AI / ML",
+    tags: ["Python", "Flask", "Scikit-learn"],
+    problem:
+      "Users needed a way to analyze symptoms and receive structured health guidance based on multiple factors.",
+    solution:
+      "An AI-powered web platform using machine learning for symptom analysis, disease prediction, location and seasonal factors, and personalized guidance.",
+    result:
+      "19,000+ symptom records · Real-time predictions",
+  },
+
+  {
+    name: "C-SARNet",
+    category: "AI / ML",
+    tags: ["React", "Django", "Deep Learning"],
+    problem:
+      "Synthetic Aperture Radar imagery is difficult to interpret without specialized visualization and analysis tools.",
+    solution:
+      "A deep-learning platform for analyzing and colorizing SAR imagery with an interactive React interface, Django API, and dedicated ML model.",
+    result:
+      "Interactive SAR analysis · Deep-learning image processing",
+  },
+  {
+  name: "UDHAYAM 26",
+  category: "Web",
+  tags: ["React", "Event Platform", "Registration"],
+  problem:
+    "A college technical and cultural fest needed a digital platform to present the event, communicate its activities, manage passes, and provide participants with essential information.",
+  solution:
+    "A dedicated event platform for UDHAYAM 26 featuring fest information, event highlights, pass selection, registration details, gallery, coordinator contacts, and event countdown.",
+  result:
+    "Event information centralized · Online pass registration · Complete participant information hub",
+},
 ];
 
 const TESTIMONIALS = [
@@ -183,11 +217,11 @@ const TESTIMONIALS = [
 const PROCESS_STEPS = [
   { level: "01", title: "Discovery", icon: Search, desc: "We dig into your business goals, users, and constraints before proposing a single feature." },
   { level: "02", title: "Planning", icon: ClipboardList, desc: "Scope, timeline, and architecture get locked into a roadmap you can see and approve." },
-  { level: "03", title: "UI/UX", icon: Palette, desc: "Wireframes and prototypes get tested before development starts — surprises happen on paper." },
+  { level: "03", title: "UI/UX", icon: Palette, desc: "Wireframes and prototypes get tested before development starts  surprises happen on paper." },
   { level: "04", title: "Development", icon: Code2, desc: "Built in sprints with regular check-ins, so you see progress every week, not just at the end." },
   { level: "05", title: "Testing", icon: ShieldCheck, desc: "Manual and automated testing across devices and edge cases before anything ships." },
   { level: "06", title: "Deployment", icon: Rocket, desc: "Released to production with monitoring in place from day one." },
-  { level: "07", title: "Support", icon: LifeBuoy, desc: "We stay on after launch — monitoring, fixing, and improving as real users show up." },
+  { level: "07", title: "Support", icon: LifeBuoy, desc: "We stay on after launch  monitoring, fixing, and improving as real users show up." },
 ];
 
 const TECH_GROUPS = [
@@ -199,39 +233,39 @@ const TECH_GROUPS = [
 ];
 
 const FAQS_HOME = [
-  { q: "How is pricing decided?", a: "Every project is scoped individually based on features, timeline, and integrations. We share a fixed quote before any work begins — not an hourly guess." },
+  { q: "How is pricing decided?", a: "Every project is scoped individually based on features, timeline, and integrations. We share a fixed quote before any work begins  not an hourly guess." },
   { q: "How long does a typical project take?", a: "A marketing website usually takes 3-4 weeks. A full SaaS MVP typically takes 8-14 weeks depending on scope." },
   { q: "Who owns the code once the project is done?", a: "You do, fully. Once final payment clears, all source code and IP transfer to you." },
   { q: "What happens after launch?", a: "Every project includes a support window post-launch. Ongoing plans are available after that for updates and monitoring." },
   { q: "Do you handle hosting and deployment?", a: "We can set up and manage hosting on AWS, Azure, or your platform of choice, or hand it off to your internal team." },
-  { q: "Do you build MVPs for early-stage startups?", a: "Yes — it's a significant part of what we do, scoped tightly to test your core hypothesis first." },
+  { q: "Do you build MVPs for early-stage startups?", a: "Yes  it's a significant part of what we do, scoped tightly to test your core hypothesis first." },
 ];
 
 const FAQS_FULL = [
-  { cat: "Pricing", q: "How is pricing decided?", a: "Every project is scoped individually based on features, timeline, and integrations. We share a fixed quote before any work begins — not an hourly guess." },
+  { cat: "Pricing", q: "How is pricing decided?", a: "Every project is scoped individually based on features, timeline, and integrations. We share a fixed quote before any work begins  not an hourly guess." },
   { cat: "Pricing", q: "Do you offer fixed-price or hourly billing?", a: "Both. Most projects run on fixed-price milestones; ongoing support and small changes can run hourly." },
   { cat: "Timeline", q: "How long does a typical project take?", a: "A marketing website usually takes 3-4 weeks. A full SaaS MVP typically takes 8-14 weeks depending on scope." },
   { cat: "Timeline", q: "What causes timelines to slip?", a: "Mostly late feedback or scope changes mid-build. We flag both immediately and re-quote the timeline rather than let it slide silently." },
   { cat: "Ownership", q: "Who owns the code once the project is done?", a: "You do, fully. Once final payment clears, all source code and IP transfer to you." },
-  { cat: "Ownership", q: "Can I take the project to another developer later?", a: "Yes — we hand over a clean, documented codebase specifically so that's possible." },
+  { cat: "Ownership", q: "Can I take the project to another developer later?", a: "Yes  we hand over a clean, documented codebase specifically so that's possible." },
   { cat: "Support", q: "What happens after launch?", a: "Every project includes a support window post-launch. Ongoing plans are available after that for updates and monitoring." },
   { cat: "Support", q: "How fast do you respond to support requests?", a: "Standard requests within 24 hours on business days. Critical issues get same-day attention." },
   { cat: "Maintenance", q: "Do you offer ongoing maintenance plans?", a: "Yes. Monthly retainers cover updates, security patches, and small feature requests." },
   { cat: "Hosting", q: "Do you handle hosting and deployment?", a: "We can set up and manage hosting on AWS, Azure, or your platform of choice, or hand it off to your internal team." },
-  { cat: "Source Code", q: "Will I get access to the repository during development?", a: "Yes — you get access to a private repo from day one, not just at delivery." },
-  { cat: "Payment", q: "What payment schedule do you use?", a: "Typically 30% upfront, milestone payments through development, and the final balance at delivery." },
+  { cat: "Source Code", q: "Will I get access to the repository during development?", a: "Yes  you get access to a private repo from day one, not just at delivery." },
+  { cat: "Payment", q: "What payment schedule do you use?", a: "Typically 50% upfront, milestone payments through development, and the final balance at delivery." },
   { cat: "Payment", q: "What payment methods do you accept?", a: "Bank transfer, UPI, and major cards through our payment processor." },
   { cat: "General", q: "Do you sign NDAs?", a: "Yes, before any detailed discussion, if you'd like one in place." },
-  { cat: "General", q: "Can you work with our existing team?", a: "Yes — we regularly plug into existing teams as an extension, not just a standalone vendor." },
-  { cat: "General", q: "Do you build MVPs for early-stage startups?", a: "Yes — it's a significant part of what we do, scoped tightly to test your core hypothesis first." },
+  { cat: "General", q: "Can you work with our existing team?", a: "Yes  we regularly plug into existing teams as an extension, not just a standalone vendor." },
+  { cat: "General", q: "Do you build MVPs for early-stage startups?", a: "Yes  it's a significant part of what we do, scoped tightly to test your core hypothesis first." },
 ];
 
 const PRICING_TIERS = [
-  { name: "Starter", price: "₹15,000", note: "onwards", desc: "Landing pages & simple websites",
-    features: ["Up to 5 pages", "Responsive design", "Basic SEO setup", "2 rounds of revisions", "~2 weeks delivery"] },
-  { name: "Professional", price: "₹50,000", note: "onwards", desc: "Web apps & business platforms", popular: true,
+  { name: "Starter", price: "15000", note: "onwards", desc: "Landing pages & simple websites",
+    features: ["Up to 5 pages", "Responsive design", "1 yr free domain", "2 rounds of revisions", "~2 weeks delivery"] },
+  { name: "Professional", price: "50000", note: "onwards", desc: "Web apps & business platforms", popular: true,
     features: ["Custom web application", "API integrations", "Admin dashboard", "~6 weeks delivery", "30 days post-launch support"] },
-  { name: "Enterprise", price: "₹1,00,000", note: "onwards", desc: "Complex platforms & SaaS products",
+  { name: "Enterprise", price: "100000", note: "onwards", desc: "Complex platforms & SaaS products",
     features: ["Multi-tenant architecture", "Dedicated project team", "Advanced security practices", "Scalable cloud infrastructure", "90 days post-launch support"] },
   { name: "Custom Quote", price: "Let's talk", note: "", desc: "AI systems, agents & unique builds",
     features: ["Tailored scope & timeline", "Flexible engagement models", "Dedicated technical lead", "Ongoing retainer options", "NDA available on request"] },
@@ -239,7 +273,7 @@ const PRICING_TIERS = [
 
 const BLOG_POSTS = [
   { title: "Top AI Trends Shaping Business Software in 2026", cat: "AI", read: "6 min",
-    excerpt: "A look at where AI is actually delivering ROI for businesses right now — and where the hype still outpaces the results." },
+    excerpt: "A look at where AI is actually delivering ROI for businesses right now  and where the hype still outpaces the results." },
   { title: "Why Every Business Needs Automation, Not Just AI", cat: "Automation", read: "5 min",
     excerpt: "Automation quietly saves more hours than most AI pilots ever will. Here's where to start looking in your own operations." },
   { title: "React vs Flutter: Picking the Right Stack for Your App", cat: "Mobile", read: "7 min",
@@ -247,9 +281,9 @@ const BLOG_POSTS = [
   { title: "Choosing the Right Database for Your Next Project", cat: "Backend", read: "6 min",
     excerpt: "SQL or NoSQL isn't really the question. Here's how we actually decide it for client projects." },
   { title: "How AI Can Reduce Operational Costs Without Cutting Corners", cat: "AI", read: "5 min",
-    excerpt: "Practical, unglamorous ways teams are using AI to cut costs — beyond the chatbot everyone already tried." },
+    excerpt: "Practical, unglamorous ways teams are using AI to cut costs  beyond the chatbot everyone already tried." },
   { title: "Cloud vs Traditional Hosting: What Actually Matters", cat: "Cloud", read: "4 min",
-    excerpt: "Uptime, cost, and scaling — a practical comparison for teams deciding where to host their next product." },
+    excerpt: "Uptime, cost, and scaling  a practical comparison for teams deciding where to host their next product." },
 ];
 
 const JOBS = [

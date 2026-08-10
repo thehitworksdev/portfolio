@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PageHero from "../Common/Pagehero";
-import PixelCard from "../Common/Pixelcard";
 import PixelButton from "../Common/Button";
 import Chip from "../Common/Chip";
 import { ChevronDown, CheckCircle2 } from "lucide-react";
@@ -8,7 +7,8 @@ import { SERVICES } from "../../data/content";
 import CtaBand from "../CTA/CTA";
 
 export default function ServicesPage({ navigate }: { navigate: (to: string) => void }) {
-  const [openId, setOpenId] = useState(SERVICES[0].id);
+  // const [openId, setOpenId] = useState(SERVICES[0].id);
+  const [openId, setOpenId] = useState<string | null>(null);
   return (
     <div>
       <PageHero eyebrow="What we build" title="SERVICES" sub="Ten disciplines, one team. Tap a service to see how we scope, build, and price it." />
@@ -51,10 +51,10 @@ export default function ServicesPage({ navigate }: { navigate: (to: string) => v
                       <div className="font-pixel text-10px text-royal mb-3">USE CASES</div>
                       <p className="text-ink-70 text-lg mb-5">{s.useCases.join(" · ")}</p>
                       <div className="flex items-center justify-between border-t-2 border-milk-deep pt-4">
-                        <div>
+                        {/* <div>
                           <div className="text-sm text-ink-70">Starting from</div>
                           <div className="font-pixel text-lg text-ink">{s.startingFrom}</div>
-                        </div>
+                        </div> */}
                         <PixelButton variant="royal" onClick={() => navigate("contact")}>Get a Quote</PixelButton>
                       </div>
                     </div>

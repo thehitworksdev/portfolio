@@ -7,8 +7,13 @@ import { Filter } from "lucide-react";
 import { PROJECTS } from "../../data/content";
 import CtaBand from "../CTA/CTA";
 
-const PORTFOLIO_FILTERS = ["All", "AI", "Web", "Mobile", "Automation", "UI Design", "Cloud"];
-
+const PORTFOLIO_FILTERS = [
+  "All",
+  "Web",
+  "Mobile",
+  "AI / ML",
+  "Education",
+];
 export default function PortfolioPage({ navigate }: { navigate: (to: string) => void }) {
   const [filter, setFilter] = useState("All");
   const filtered = filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);

@@ -31,12 +31,12 @@ export default function CaseStudies() {
               </div>
               <div className="grid md:grid-cols-2 gap-8 items-start">
                 <div className="flex flex-col gap-4">
-                  <p className="text-ink-70 text-lg"><span className="text-ink font-bold">Problem — </span>{p.problem}</p>
-                  <p className="text-ink-70 text-lg"><span className="text-ink font-bold">Solution — </span>{p.solution}</p>
+                  <p className="text-ink-70 text-lg"><span className="text-ink font-bold">Problem  </span>{p.problem}</p>
+                  <p className="text-ink-70 text-lg"><span className="text-ink font-bold">Solution  </span>{p.solution}</p>
                   <div className="bg-royal-deep text-milk p-5 pixel-corners-sm">
                     <Quote size={18} className="text-gold mb-2" />
                     <p className="text-lg">{TESTIMONIALS[idx % TESTIMONIALS.length].quote}</p>
-                    <p className="text-sm text-milk-70 mt-3">— {TESTIMONIALS[idx % TESTIMONIALS.length].name}, {TESTIMONIALS[idx % TESTIMONIALS.length].role}</p>
+                    <p className="text-sm text-milk-70 mt-3"> {TESTIMONIALS[idx % TESTIMONIALS.length].name}, {TESTIMONIALS[idx % TESTIMONIALS.length].role}</p>
                   </div>
                 </div>
                 <div className="bg-gold border-2 border-ink pixel-corners-sm p-8 text-center">

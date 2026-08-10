@@ -22,7 +22,7 @@ export default function Solutions() {
               </div>
               <div className="font-pixel text-10px text-royal mb-2">COMMON PROBLEMS</div>
               <ul className="flex flex-col gap-1 mb-4">
-                {ind.problems.map((p) => <li key={p} className="text-ink-70 text-lg">— {p}</li>)}
+                {ind.problems.map((p) => <li key={p} className="text-ink-70 text-lg"> {p}</li>)}
               </ul>
               <div className="font-pixel text-10px text-royal mb-2">OUR SOLUTION</div>
               <p className="text-ink-70 text-lg mb-4">{ind.solution}</p>

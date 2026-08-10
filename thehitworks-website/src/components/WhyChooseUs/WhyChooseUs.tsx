@@ -27,7 +27,7 @@ export default function AboutPage({ navigate }: AboutPageProps) {
             [
               "Mission",
               Target,
-              "Help growing businesses replace manual, error-prone work with software that just handles it — reliably, and on a budget that makes sense.",
+              "Help growing businesses replace manual, error-prone work with software that just handles it  reliably, and on a budget that makes sense.",
             ],
             [
               "Vision",
@@ -71,7 +71,7 @@ export default function AboutPage({ navigate }: AboutPageProps) {
           />
 
           <p className="text-ink-70 text-xl leading-relaxed">
-            THE HIT WORKS started the way most software studios do — with
+            THE HIT WORKS started the way most software studios do  with
             frustration. We kept meeting business owners running entire
             operations out of spreadsheets and group chats, not because they
             didn't know better, but because good software felt expensive,
@@ -99,7 +99,7 @@ export default function AboutPage({ navigate }: AboutPageProps) {
             {[
               [
                 "Async by default",
-                "Clear written updates over status-meeting theater — your time matters.",
+                "Clear written updates over status-meeting theater  your time matters.",
               ],
               [
                 "Ship in small pieces",
@@ -163,22 +163,18 @@ export default function AboutPage({ navigate }: AboutPageProps) {
           </p>
         </div>
       </section>
-
-      {/* Achievements */}
       <section className="bg-milk py-20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             eyebrow="Where we stand"
             title="ACHIEVEMENTS SO FAR"
           />
-
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              ["Founded", "2025"],
+              ["Founded", "2026"],
               ["Avg. response time", "<24h"],
               ["Support availability", "24/7"],
-              ["Industries served", "8+"],
-            ].map(([label, value]) => (
+              ["Core focus", "AI + Software"],].map(([label, value]) => (
               <div
                 key={label}
                 className="bg-paper border-2 border-ink pixel-corners-sm p-6 text-center"

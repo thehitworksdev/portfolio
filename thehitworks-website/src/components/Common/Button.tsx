@@ -1,12 +1,13 @@
-import type { ReactNode, ComponentType } from "react";
-
+import type { ReactNode} from "react";
+import type { LucideIcon } from "lucide-react";
 interface PixelButtonProps {
   children: ReactNode;
   onClick?: () => void;
   variant?: "royal" | "gold" | "ghost" | "ghostMilk";
   size?: "md" | "lg";
   type?: "button" | "submit" | "reset";
-  icon?: ComponentType<{ size?: number }>;
+  icon?: LucideIcon;
+  disabled?: boolean;
 }
 
 export default function PixelButton({
@@ -33,11 +34,10 @@ export default function PixelButton({
     <button
       type={type}
       onClick={onClick}
-      className={`btn-pixel font-pixel ${sizes} ${palette[variant]} inline-flex items-center justify-center gap-2 whitespace-nowrap`}
+      className={`btn-pixel font-pixel ${sizes} ${palette[variant]} inline-flex items-center justify-center gap-2 text-center whitespace-normal max-w-full`}
     >
-      {children}
-
-      {Icon && <Icon size={16} />}
+      <span className="break-words">{children}</span>
+      {Icon && <Icon size={16} className="shrink-0" />}
     </button>
   );
 }
