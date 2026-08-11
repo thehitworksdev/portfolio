@@ -135,7 +135,7 @@ export default function Hero({ navigate }: { navigate: (to: string) => void }) {
                 </div>
                 <h3 className="font-term text-2xl text-ink mb-2">{s.title}</h3>
                 <p className="text-ink-70 text-lg mb-4">{s.tagline}</p>
-                <button onClick={() => navigate(toPath("services"))} className="mt-auto font-pixel text-10px text-royal inline-flex items-center gap-2">
+                <button onClick={() => navigate(toPath(`services?open=${s.id}`))} className="mt-auto font-pixel text-10px text-royal inline-flex items-center gap-2">
                   LEARN MORE <ChevronRight size={12} />
                 </button>
               </PixelCard>

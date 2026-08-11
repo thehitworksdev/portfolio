@@ -357,7 +357,7 @@ function TechGroup({
 const STATS = [
   {
     label: "Technologies",
-    value: "23+",
+    value: "100+",
   },
   {
     label: "Projects & prototypes",

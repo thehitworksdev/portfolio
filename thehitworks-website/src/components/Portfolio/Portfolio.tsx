@@ -13,6 +13,7 @@ const PORTFOLIO_FILTERS = [
   "Mobile",
   "AI / ML",
   "Education",
+  "AI Social Platform",
 ];
 export default function PortfolioPage({ navigate }: { navigate: (to: string) => void }) {
   const [filter, setFilter] = useState("All");

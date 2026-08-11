@@ -66,28 +66,68 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
-          <div className="font-pixel text-10px text-gold mb-4">QUICK LINKS</div>
-          <div className="flex flex-col gap-3 text-lg font-term text-milk-70">
-            <button onClick={() => navigate(toPath("process"))} className="text-left hover:text-milk">Our Process</button>
-            <button onClick={() => navigate(toPath("pricing"))} className="text-left hover:text-milk">Pricing</button>
-            {/* <button onClick={() => navigate(toPath("careers"))} className="text-left hover:text-milk">Careers</button> */}
-            <button onClick={() => navigate(toPath("faq"))} className="text-left hover:text-milk">FAQ</button>
-            <button onClick={() => navigate(toPath("contact"))} className="text-left hover:text-milk">Contact</button>
-          </div>
+       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
+      <div className="text-left">
+        <div className="font-pixel text-10px text-gold mb-4">
+          QUICK LINKS
         </div>
+        <div className="flex flex-col gap-3 text-lg font-term text-milk-70 items-start">
+          <button
+            onClick={() => navigate(toPath("process"))}
+            className="text-left hover:text-milk"
+          >
+            Our Process
+          </button>
+          <button
+            onClick={() => navigate(toPath("pricing"))}
+            className="text-left hover:text-milk"
+          >
+            Pricing
+          </button>
+          {/* <button
+            onClick={() => navigate(toPath("careers"))}
+            className="text-left hover:text-milk"
+          >
+            Careers
+          </button> */}
+          <button
+            onClick={() => navigate(toPath("faq"))}
+            className="text-left hover:text-milk"
+          >
+            FAQ
+          </button>
 
-        <div>
-          <div className="font-pixel text-10px text-gold mb-4">CONTACT</div>
-          <div className="flex flex-col gap-3 text-lg font-term text-milk-70">
-            <span className="flex items-center gap-2"><MapPin size={16} /> Coimbatore, Tamil Nadu, IN</span>
-            <span className="flex items-center gap-2">
-              <BriefcaseBusiness size={16} />
-              Business Enquiries
-            </span>
-            <span className="flex items-center gap-2"><Mail size={16} /> hello@thehitworks.com</span>
-          </div>
+          <button
+            onClick={() => navigate(toPath("contact"))}
+            className="text-left hover:text-milk"
+          >
+            Contact
+          </button>
         </div>
+      </div>
+      <div className="text-left">
+        <div className="font-pixel text-10px text-gold mb-4">
+          CONTACT
+        </div>
+        <div className="flex flex-col items-start gap-3 text-lg font-term text-milk-70">
+          <span className="flex items-center gap-2 whitespace-nowrap">
+            <MapPin size={16} className="shrink-0" />
+            <span>Coimbatore, Tamil Nadu, IN</span>
+          </span>
+          <span className="flex items-center gap-2 whitespace-nowrap">
+            <BriefcaseBusiness size={16} className="shrink-0" />
+            <span>Business Enquiries</span>
+          </span>
+          <a
+            href="mailto:hello@thehitworks.com"
+            className="flex items-center gap-2 whitespace-nowrap hover:text-milk"
+          >
+            <Mail size={16} className="shrink-0" />
+            <span>hello@thehitworks.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 pb-10">

@@ -29,6 +29,7 @@ const NAV_ITEMS = [
   { id: "services", label: "Services" },
   { id: "solutions", label: "Solutions" },
   { id: "portfolio", label: "Portfolio" },
+  { id: "pricing", label: "Pricing" },
   // { id: "case-studies", label: "Case Studies" },
   { id: "technologies", label: "Technologies" },
   { id: "about", label: "About" },
@@ -193,6 +194,22 @@ const PROJECTS = [
       "Interactive SAR analysis · Deep-learning image processing",
   },
   {
+  name: "SkyLink",
+
+  category: "AI Social Platform",
+
+  tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Supabase", "MUI", "React Query", "Groq AI"],
+
+  problem:
+    "Users needed a modern social platform for sharing content, discovering people, communicating privately, and receiving real-time notifications in one place.",
+
+  solution:
+    "A full-stack social platform with user profiles, timelines, tweets, replies, likes, retweets, infinite feeds, direct messaging, notifications, search, media uploads, and an integrated AI assistant.",
+
+  result:
+    "Full-featured social platform · Real-time messaging · AI-powered assistant · Scalable full-stack architecture",
+},
+  {
   name: "UDHAYAM 26",
   category: "Web",
   tags: ["React", "Event Platform", "Registration"],
@@ -205,14 +222,14 @@ const PROJECTS = [
 },
 ];
 
-const TESTIMONIALS = [
-  { name: "Ananya Rao", role: "Operations Head, Vertex Health Clinics",
-    quote: "They asked about our clinic's workflow before writing a single line of code. Our staff actually enjoy using the new system." },
-  { name: "Karthik Subramaniam", role: "Founder, ShelfSense Retail",
-    quote: "They shipped our MVP faster than we expected and were upfront every time a timeline shifted. That honesty mattered more than the speed." },
-  { name: "Priya Menon", role: "COO, RouteWise Logistics",
-    quote: "Our dispatch team stopped fighting spreadsheets within the first month. Support has stayed just as strong after launch as it was during development." },
-];
+// const TESTIMONIALS = [
+//   { name: "Ananya Rao", role: "Operations Head, Vertex Health Clinics",
+//     quote: "They asked about our clinic's workflow before writing a single line of code. Our staff actually enjoy using the new system." },
+//   { name: "Karthik Subramaniam", role: "Founder, ShelfSense Retail",
+//     quote: "They shipped our MVP faster than we expected and were upfront every time a timeline shifted. That honesty mattered more than the speed." },
+//   { name: "Priya Menon", role: "COO, RouteWise Logistics",
+//     quote: "Our dispatch team stopped fighting spreadsheets within the first month. Support has stayed just as strong after launch as it was during development." },
+// ];
 
 const PROCESS_STEPS = [
   { level: "01", title: "Discovery", icon: Search, desc: "We dig into your business goals, users, and constraints before proposing a single feature." },
@@ -225,11 +242,212 @@ const PROCESS_STEPS = [
 ];
 
 const TECH_GROUPS = [
-  { title: "Frontend", items: [{n:"React",p:95},{n:"Next.js",p:92},{n:"Flutter",p:88},{n:"Tailwind CSS",p:96}] },
-  { title: "Backend", items: [{n:"Python",p:94},{n:"Django",p:88},{n:"FastAPI",p:90},{n:"Node.js",p:93}] },
-  { title: "Database", items: [{n:"PostgreSQL",p:92},{n:"MongoDB",p:87},{n:"Firebase",p:89},{n:"Redis",p:85}] },
-  { title: "AI", items: [{n:"OpenAI",p:93},{n:"Gemini",p:88},{n:"LangChain",p:90},{n:"Ollama",p:84},{n:"HuggingFace",p:86}] },
-  { title: "Cloud & DevOps", items: [{n:"Docker",p:91},{n:"GitHub Actions",p:89},{n:"AWS",p:90},{n:"Azure",p:85},{n:"Linux",p:93},{n:"Kubernetes",p:83}] },
+  {
+    title: "Frontend",
+    items: [
+      {n:"React",p:95},
+      {n:"Next.js",p:92},
+      {n:"Vue.js",p:87},
+      {n:"Angular",p:84},
+      {n:"Svelte",p:82},
+      {n:"Flutter",p:88},
+      {n:"React Native",p:86},
+      {n:"Tailwind CSS",p:96},
+      {n:"TypeScript",p:94},
+      {n:"JavaScript",p:97},
+      {n:"HTML5",p:98},
+      {n:"CSS3",p:96},
+      {n:"Vite",p:93},
+      {n:"Framer Motion",p:88},
+    ]
+  },
+
+  {
+    title: "Backend",
+    items: [
+      {n:"Python",p:94},
+      {n:"Django",p:88},
+      {n:"Django REST",p:91},
+      {n:"FastAPI",p:90},
+      {n:"Flask",p:84},
+      {n:"Node.js",p:93},
+      {n:"Express.js",p:89},
+      {n:"NestJS",p:82},
+      {n:"Java",p:80},
+      {n:"Spring Boot",p:78},
+      {n:"C++",p:76},
+      {n:"REST APIs",p:96},
+      {n:"GraphQL",p:84},
+      {n:"WebSockets",p:86},
+    ]
+  },
+
+  {
+    title: "Database",
+    items: [
+      {n:"PostgreSQL",p:92},
+      {n:"MySQL",p:89},
+      {n:"MongoDB",p:87},
+      {n:"Firebase",p:89},
+      {n:"Supabase",p:91},
+      {n:"Redis",p:85},
+      {n:"SQLite",p:88},
+      {n:"MariaDB",p:82},
+      {n:"DynamoDB",p:78},
+      {n:"SQL",p:94},
+      {n:"Prisma",p:86},
+      {n:"SQLAlchemy",p:84},
+    ]
+  },
+
+  {
+    title: "AI",
+    items: [
+      {n:"OpenAI",p:93},
+      {n:"Gemini",p:88},
+      {n:"Claude",p:87},
+      {n:"LangChain",p:90},
+      {n:"LangGraph",p:86},
+      {n:"Ollama",p:84},
+      {n:"HuggingFace",p:86},
+      {n:"PyTorch",p:91},
+      {n:"TensorFlow",p:87},
+      {n:"Scikit-learn",p:92},
+      {n:"Pandas",p:95},
+      {n:"NumPy",p:96},
+      {n:"OpenCV",p:85},
+      {n:"LLM Integration",p:94},
+      {n:"RAG",p:91},
+      {n:"Vector Databases",p:88},
+      {n:"AI Agents",p:92},
+      {n:"Prompt Engineering",p:94},
+    ]
+  },
+
+  {
+    title: "Cloud & DevOps",
+    items: [
+      {n:"Docker",p:91},
+      {n:"GitHub Actions",p:89},
+      {n:"AWS",p:90},
+      {n:"Azure",p:85},
+      {n:"Google Cloud",p:82},
+      {n:"Linux",p:93},
+      {n:"Kubernetes",p:83},
+      {n:"Terraform",p:86},
+      {n:"Ansible",p:80},
+      {n:"Jenkins",p:82},
+      {n:"Git",p:97},
+      {n:"GitHub",p:97},
+      {n:"GitLab",p:87},
+      {n:"CI/CD",p:94},
+      {n:"Nginx",p:88},
+      {n:"Apache",p:80},
+      {n:"Cloudflare",p:89},
+      {n:"Vercel",p:93},
+      {n:"Railway",p:88},
+    ]
+  },
+
+  // {
+  //   title: "Cybersecurity",
+  //   items: [
+  //     {n:"OWASP",p:89},
+  //     {n:"Burp Suite",p:86},
+  //     {n:"Nmap",p:84},
+  //     {n:"Wireshark",p:82},
+  //     {n:"Linux Security",p:88},
+  //     {n:"Web Security",p:91},
+  //     {n:"API Security",p:89},
+  //     {n:"JWT",p:93},
+  //     {n:"OAuth 2.0",p:88},
+  //     {n:"RBAC",p:94},
+  //     {n:"Network Security",p:82},
+  //     {n:"Vulnerability Testing",p:85},
+  //   ]
+  // },
+
+  {
+    title: "Testing & QA",
+    items: [
+      {n:"Pytest",p:89},
+      {n:"Jest",p:86},
+      {n:"Playwright",p:91},
+      {n:"Selenium",p:84},
+      {n:"Postman",p:94},
+      {n:"API Testing",p:95},
+      {n:"Unit Testing",p:93},
+      {n:"Integration Testing",p:90},
+      {n:"End-to-End Testing",p:88},
+      {n:"Load Testing",p:82},
+    ]
+  },
+
+  {
+    title: "Automation",
+    items: [
+      {n:"Python Automation",p:94},
+      {n:"n8n",p:91},
+      {n:"Zapier",p:87},
+      {n:"Make",p:84},
+      {n:"Selenium",p:86},
+      {n:"Playwright",p:91},
+      {n:"REST Automation",p:93},
+      {n:"Webhooks",p:94},
+      {n:"Workflow Automation",p:95},
+      {n:"RPA",p:82},
+    ]
+  },
+
+  {
+    title: "Mobile",
+    items: [
+      {n:"Flutter",p:91},
+      {n:"Dart",p:89},
+      {n:"React Native",p:86},
+      {n:"Firebase",p:91},
+      {n:"Android",p:82},
+      {n:"Kotlin",p:80},
+      {n:"Swift",p:78},
+      {n:"Push Notifications",p:93},
+      {n:"App Deployment",p:88},
+      {n:"Mobile APIs",p:94},
+    ]
+  },
+
+  {
+    title: "Architecture",
+    items: [
+      {n:"System Design",p:88},
+      {n:"Microservices",p:84},
+      {n:"Monoliths",p:92},
+      {n:"Event-Driven Architecture",p:82},
+      {n:"REST Architecture",p:95},
+      {n:"API Gateway",p:86},
+      {n:"Caching",p:90},
+      {n:"Message Queues",p:84},
+      {n:"Load Balancing",p:82},
+      {n:"Scalability",p:91},
+      {n:"High Availability",p:87},
+    ]
+  },
+
+  {
+    title: "Tools",
+    items: [
+      {n:"VS Code",p:97},
+      {n:"Git",p:97},
+      {n:"GitHub",p:97},
+      {n:"Postman",p:94},
+      {n:"Figma",p:82},
+      {n:"Jira",p:84},
+      {n:"ClickUp",p:88},
+      {n:"Notion",p:91},
+      {n:"Discord",p:89},
+      {n:"Slack",p:84},
+      {n:"Linux Terminal",p:94},
+    ]
+  },
 ];
 
 const FAQS_HOME = [
@@ -305,7 +523,6 @@ export {
   SERVICES,
   INDUSTRIES,
   PROJECTS,
-  TESTIMONIALS,
   PROCESS_STEPS,
   TECH_GROUPS,
   FAQS_HOME,
