@@ -222,14 +222,14 @@ const PROJECTS = [
 },
 ];
 
-// const TESTIMONIALS = [
-//   { name: "Ananya Rao", role: "Operations Head, Vertex Health Clinics",
-//     quote: "They asked about our clinic's workflow before writing a single line of code. Our staff actually enjoy using the new system." },
-//   { name: "Karthik Subramaniam", role: "Founder, ShelfSense Retail",
-//     quote: "They shipped our MVP faster than we expected and were upfront every time a timeline shifted. That honesty mattered more than the speed." },
-//   { name: "Priya Menon", role: "COO, RouteWise Logistics",
-//     quote: "Our dispatch team stopped fighting spreadsheets within the first month. Support has stayed just as strong after launch as it was during development." },
-// ];
+const TESTIMONIALS = [
+  { name: "Ananya Rao", role: "Operations Head, Vertex Health Clinics",
+    quote: "They asked about our clinic's workflow before writing a single line of code. Our staff actually enjoy using the new system." },
+  { name: "Karthik Subramaniam", role: "Founder, ShelfSense Retail",
+    quote: "They shipped our MVP faster than we expected and were upfront every time a timeline shifted. That honesty mattered more than the speed." },
+  { name: "Priya Menon", role: "COO, RouteWise Logistics",
+    quote: "Our dispatch team stopped fighting spreadsheets within the first month. Support has stayed just as strong after launch as it was during development." },
+];
 
 const PROCESS_STEPS = [
   { level: "01", title: "Discovery", icon: Search, desc: "We dig into your business goals, users, and constraints before proposing a single feature." },
@@ -523,6 +523,7 @@ export {
   SERVICES,
   INDUSTRIES,
   PROJECTS,
+  TESTIMONIALS,
   PROCESS_STEPS,
   TECH_GROUPS,
   FAQS_HOME,
